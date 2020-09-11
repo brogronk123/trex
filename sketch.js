@@ -87,6 +87,10 @@ function draw() {
     if (ground.x < 0){
       ground.x = ground.width/2;
     }
+
+    if(localStorage["HighestScore"]<score){
+      localStorage["HighestScore"] = score;
+    }
   
     trex.collide(invisibleGround);
     spawnClouds();
