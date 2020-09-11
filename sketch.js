@@ -72,7 +72,7 @@ function draw() {
   //trex.debug = true;
   background(255);
   text("Score: "+ score, 500,50);
-  text("High Score: "+localStorage["HighestScore"], 100, 50);
+  
   
   if (gameState===PLAY){
     score = score + Math.round(getFrameRate()/60);
@@ -91,6 +91,8 @@ function draw() {
     if(localStorage["HighestScore"]<score){
       localStorage["HighestScore"] = score;
     }
+
+    text("High Score: "+localStorage["HighestScore"], 100, 50);
   
     trex.collide(invisibleGround);
     spawnClouds();
@@ -103,6 +105,8 @@ function draw() {
   else if (gameState === END) {
     gameOver.visible = true;
     restart.visible = true;
+    
+    text("High Score: "+localStorage["HighestScore"], 100, 50);
     
     //set velcity of each game object to 0
     ground.velocityX = 0;
